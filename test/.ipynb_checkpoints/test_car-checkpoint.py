@@ -44,25 +44,25 @@ class TestEngines(unittest.TestCase):
 class TestBatteries(unittest.TestCase):
     def test_nubbin_battery_needs_service(self):
         current_date = datetime.now()
-        last_service_date = current_date - timedelta(days=4 * 365)  # 4 years ago
+        last_service_date = current_date - timedelta(days=4 * 365)  
         nubbin_battery = NubbinBattery(current_date, last_service_date)
         self.assertTrue(nubbin_battery.needs_service())
 
     def test_nubbin_battery_does_not_need_service(self):
         current_date = datetime.now()
-        last_service_date = current_date - timedelta(days=2 * 365)  # 2 years ago
+        last_service_date = current_date - timedelta(days=2 * 365)  
         nubbin_battery = NubbinBattery(current_date, last_service_date)
         self.assertFalse(nubbin_battery.needs_service())
 
     def test_spindler_battery_needs_service(self):
         current_date = datetime.now()
-        last_service_date = current_date - timedelta(days=2 * 365)  # 2 years ago
+        last_service_date = current_date - timedelta(days=3 * 365)  
         spindler_battery = SpindlerBattery(current_date, last_service_date)
         self.assertTrue(spindler_battery.needs_service())
 
     def test_spindler_battery_does_not_need_service(self):
         current_date = datetime.now()
-        last_service_date = current_date - timedelta(days=1 * 365)  # 1 year ago
+        last_service_date = current_date - timedelta(days=2 * 365) 
         spindler_battery = SpindlerBattery(current_date, last_service_date)
         self.assertFalse(spindler_battery.needs_service())
 
